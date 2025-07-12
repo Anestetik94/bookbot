@@ -19,9 +19,9 @@ def main():
     book_text = get_book_text("frankenstein.txt")
     num_words = 0
     if "Error" in book_text:
-        print(book_text)  # Print the error message if the file wasn't found
+        print(book_text) 
     else:
-        word_count = count_words(book_text)
+        num_words = count_words(book_text)
         print(f'{num_words} words found in the document')
 
 
