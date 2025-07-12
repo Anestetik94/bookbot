@@ -8,7 +8,7 @@ def get_book_text(file):
     except Exception as e:
         return f"An error occurred: {e}"
 
-def words_count(text):
+def count_words(text):
     words = text.split()
     return len(words)
 
