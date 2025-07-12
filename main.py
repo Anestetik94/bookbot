@@ -1,17 +1,4 @@
-def get_book_text(file):
-    
-    try:
-        with open('books/frankenstein.txt', 'r', encoding='utf-8') as file:
-            return file.read()
-    except FileNotFoundError:
-        return "Error: File not found."
-    except Exception as e:
-        return f"An error occurred: {e}"
-
-def count_words(text):
-    words = text.split()
-    return len(words)
-
+from stats import count_words, get_book_text, get_characters_stats, book
 
 
 def main():
@@ -22,8 +9,16 @@ def main():
         print(book_text) 
     else:
         num_words = count_words(book_text)
-        print(f'{num_words} words found in the document')
+        print("============ BOOKBOT ============")
+        print(f"""Analyzing book found at {book}...
+----------- Word Count ----------
+Found {num_words} total words
+--------- Character Count -------""")
 
+        characters = get_characters_stats(book_text)
+        for char in characters:
+            print(f"{char['char']}: {char['num']}")
+    print("============= END ===============")
 
 if __name__ == "__main__":
     main()
